@@ -1,32 +1,20 @@
 package br.com.negocio;
 
-import br.com.beans.Pessoa;
 import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
-import br.com.beans.Produto;
+import br.com.beans.Pessoa;
 import br.com.persistencia.PessoaDao;
-import br.com.persistencia.ProdutoDao;
 
 @ManagedBean(name= "pessoaBeans")
-@SessionScoped
 public class PessoaCtrl implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	private Pessoa pessoa = null;
+	private static final long serialVersionUID = 7329427687235074332L;
+	private Pessoa pessoa = new Pessoa();
 	private String filtro;
-
-	public String getFiltro() {
-		return filtro;
-	}
-
-	public void setFiltro(String filtro) {
-		this.filtro = filtro;
-	}
-
+	
 	public List<Pessoa> getListagem() {
 		if(filtro == null){
 			pessoa = new Pessoa();
@@ -34,46 +22,49 @@ public class PessoaCtrl implements Serializable {
 		}else
 		return PessoaDao.listagem(filtro);
 	}
-	
 	public String actionGravar() {
 		if (pessoa.getPes_id() == 0) {
 			PessoaDao.salvar(pessoa);
-			return actionInserir();
+			return "pessoa_cad";
 		} else {
 			PessoaDao.alterar(pessoa);
-			return "lista_produto";
+			return "pessoa_cad";
 		}
 	}
-
-	public String actionInserir() {
-		pessoa = new Pessoa();
-		return "form_produto";
-	}
-
+	
 	public String actionVoltar() {
 		pessoa = new Pessoa();
 		return "index";
 
 	}
-
+	
 	public String actionExcluir() {
 		PessoaDao.excluir(pessoa);
-		return "lista_produto";
+		return "index";
 
 	}
-
+	
 	public String actionAlterar(Pessoa p) {
 		pessoa = p;
-		return "form_produto";
+		return "pessoa_cad";
 
 	}
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
-
+	
+	
+	
+	
+	
+	//getters e setters
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	public String getFiltro() {
+		return filtro;
+	}
+	public void setFiltro(String filtro) {
+		this.filtro = filtro;
+	}
 }
