@@ -34,8 +34,21 @@ body{
 	font-weight: bold;
 }
 
+.text-input{
+background-color:#fbfbfb;
+border:solid 50px #000000;
+margin-bottom:8px;
+width:750px;
+padding:8px 5px;
+color:#797979;
+}
 
-/* Defini��o de estilos para toda a tabela*/
+.botoes {
+    background-color: #D2691E;
+    color: #FFFFFF;
+    border: 1px outset;
+}
+
 
 .cabecalhoGeral {
 	margin-top:20px;

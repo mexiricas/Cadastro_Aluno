@@ -25,7 +25,7 @@ public class PessoaCtrl implements Serializable {
 	public String actionGravar() {
 		if (pessoa.getPes_id() == 0) {
 			PessoaDao.salvar(pessoa);
-			return "pessoa_cad";
+			return "index";
 		} else {
 			PessoaDao.alterar(pessoa);
 			return "pessoa_cad";
