@@ -17,38 +17,19 @@ public class ProdutoCtrl implements Serializable {
 	private Produto produto = new Produto();
 	private String filtro;
 
-	public String getFiltro() {
-		return filtro;
-	}
-
-	public void setFiltro(String filtro) {
-		this.filtro = filtro;
-	}
-
-	public Produto getProduto() {
-		return produto;
-	}
-
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
-
 	public List<Produto> getListagem() {
-		if(filtro == null){
+		if (filtro == null) {
 			produto = new Produto();
 			return ProdutoDao.listagem(null);
-		}else
-		return ProdutoDao.listagem(filtro);
+		} else
+			return ProdutoDao.listagem(filtro);
 	}
-	
-	
 
 	public String actionGravar() {
-		
+
 		ProdutoDao produtoDao = new ProdutoDao();
 		ProdutoDao.inserir(produto);
-		
-		
+
 		if (produto.getId() == 0) {
 			ProdutoDao.inserir(produto);
 			return actionInserir();
@@ -80,6 +61,22 @@ public class ProdutoCtrl implements Serializable {
 		produto = p;
 		return "form_produto";
 
+	}
+
+	public String getFiltro() {
+		return filtro;
+	}
+
+	public void setFiltro(String filtro) {
+		this.filtro = filtro;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
 }

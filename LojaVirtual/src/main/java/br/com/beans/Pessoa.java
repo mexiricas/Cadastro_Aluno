@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 
 @Entity
 @Table(name = "pessoa")
@@ -24,7 +26,8 @@ public class Pessoa {
 	private String pes_cpf;
 	@Column(name= "pes_rg", length = 20, nullable = true)
 	private String pes_rg;
-	@Column(name= "pes_rg", length = 20, nullable = true)
+	@Column
+	@Type(type= "date")
 	private Date pes_data_nasc;
 	@Column(name= "pes_rua", length = 60, nullable = true)
 	private String pes_rua;

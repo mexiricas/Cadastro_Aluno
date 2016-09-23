@@ -1,5 +1,0 @@
-br\com\persistencia\HibernateUtil.class
-br\com\beans\Produto.class
-br\com\beans\Pessoa.class
-br\com\negocio\ProdutoCtrl.class
-br\com\persistencia\ProdutoDao.class

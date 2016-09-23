@@ -26,6 +26,6 @@
 		
 		<!-- Mapeamento de Classe -->
 		<mapping class="br.com.beans.Produto" />
-		
+		<mapping class="br.com.beans.Pessoa" />
 	</session-factory>
 </hibernate-configuration>
