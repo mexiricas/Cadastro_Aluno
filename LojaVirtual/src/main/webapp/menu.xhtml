@@ -2,109 +2,127 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-        <h:outputStylesheet library="css" name="style.css" />
-        <h:outputStylesheet library="css" name="bootstrap-theme.css" />
-        <h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
-        <h:outputStylesheet library="css" name="bootstrap.min.css" />
-        <h:outputStylesheet library="css" name="bootstrap.css" />
-        <h:outputStylesheet library="css" name="style.css" />
-        <h:outputStylesheet library="css" name="menu.css" />
-        <link rel="stylesheet" href="resources/css/bootstrap.min.css"></link>
-        <link rel="stylesheet" href="resources/css/font-awesome.css"></link>
-        <link rel="stylesheet" href="resources/css/font-awesome.min.css"></link>
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/bootstrap.min.js"></script>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="menu.css" />
+	<link rel="stylesheet" href="resources/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="resources/css/font-awesome.css"></link>
+	<link rel="stylesheet" href="resources/css/font-awesome.min.css"></link>
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
 
-    </h:head>
+</h:head>
 
-        <nav class="navbar  navbar-default">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <h:graphicImage library="imagens" name="logo.png"
-                                style="width:150px; height:70px;" />
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse">
-                <h:form>
-                    <ul class="nav navbar-nav navbar-form">
-                    
-                        <li class="btn-default" >
-                        <h:commandLink action="#{produtoCtrl.actionVoltar}">
-                             <span class="glyphicon glyphicon-home"></span> Home
-                        </h:commandLink>
-                        </li>
-                        
-                        <li class="btn-default">
-                        <h:commandLink value="Inserir Dados" action="#{produtoCtrl.actionInserir}" />
-                        </li>
-                        
-                        <li class="btn-default">                        
-                        <h:commandLink value="Listar Dados" action="lista_produto" styleClass="info" />
-                        </li>
-                        
-                        <li class="btn-default">
-                        <h:commandLink value="Cadastro de Cliente" action="pessoa_cad" styleClass="info" />
-                        </li>
-                        
-                        <li class="btn-default">
-                        <h:commandLink value="Listar Clientes" action="lista_cliente" styleClass="info" />
-                        </li>
-                        <div class="form-group" style="margin-top: 10px;">
-                        
-                            <h:inputText value="#{produtoCtrl.filtro}" styleClass="botoes" />
+<nav class="navbar  navbar-default"> <!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+	<h:graphicImage library="imagens" name="logo.png"
+		style="width:150px; height:70px;" />
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse">
+	<h:form>
+		<ul class="nav navbar-nav navbar-form">
 
-                            <h:commandButton value="Pesquisar" action="lista_produto" styleClass="btn btn-default">
-                            </h:commandButton>
-                        </div>
-                    </ul>
-                </h:form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-                        <ul id="login-dp" class="dropdown-menu">
-                            <li>
-                                <div class="row ">
-                                    <div class="col-md-12">
-                                        Login via
-                                        <div class="social-buttons">
-                                            <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                                            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-                                        </div>
-                                        or
-                                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" />
-                                                <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> keep me logged-in</input>
-                                                </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="bottom text-center">
-                                        New here ? <a href="#"><b>Join Us</b></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+			<li class="btn-default"><h:commandLink
+					action="#{produtoCtrl.actionVoltar}">
+					<span class="glyphicon glyphicon-home"></span> Home
+                        </h:commandLink></li>
 
-            </div><!-- /.navbar-collapse -->
+			<li class="btn-default"><h:commandLink 
+					action="#{produtoCtrl.actionInserir}" >
+					<i class="fa fa-file-text" aria-hidden="true"></i> Cadastrar Produtos
+					</h:commandLink>
+					</li>
 
-        </nav>
+			
+
+			<li class="btn-default"><h:commandLink
+					action="pessoa_cad" styleClass="info" >
+					<i class="fa fa-users" aria-hidden="true"></i> Cadastro de Cliente
+					</h:commandLink>
+			</li>
+
+			
+			<li class="dropdown btn-default"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown" role="button" aria-haspopup="true"
+				aria-expanded="false"><i class="fa fa-list-ol" aria-hidden="true"></i> Listagens <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li class="btn-default"><h:commandLink value="Listar Clientes"
+					action="lista_cliente" styleClass="info" /></li>
+					<li class="btn-default"><h:commandLink value="Listar de Produtos"
+					action="#{produtoCtrl.actionNovaLista}" styleClass="info" /></li>
+					<li><a href="#">Something else here</a></li>
+					<li role="separator" class="divider"></li>
+					<li class="dropdown-header">Nav header</li>
+					<li><a href="#">Separated link</a></li>
+					<li><a href="#">One more separated link</a></li>
+				</ul></li>
+			<div class="form-group" style="margin-top: 10px;">
+
+				<h:inputText value="#{produtoCtrl.filtro}" styleClass="botoes" />
+
+				<h:commandButton value="Pesquisar" action="lista_produto"
+					styleClass="btn btn-default">
+				</h:commandButton>
+			</div>
+		</ul>
+	</h:form>
+	<ul class="nav navbar-nav navbar-right">
+		<li class="dropdown"><a href="#" class="dropdown-toggle"
+			data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					<div class="row ">
+						<div class="col-md-12">
+							Login via
+							<div class="social-buttons">
+								<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i>
+									Facebook</a> <a href="#" class="btn btn-tw"><i
+									class="fa fa-twitter"></i> Twitter</a>
+							</div>
+							or
+							<form class="form" role="form" method="post" action="login"
+								accept-charset="UTF-8" id="login-nav">
+								<div class="form-group">
+									<label class="sr-only" for="exampleInputEmail2">Email
+										address</label> <input type="email" class="form-control"
+										id="exampleInputEmail2" placeholder="Email address" />
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="exampleInputPassword2">Password</label>
+									<input type="password" class="form-control"
+										id="exampleInputPassword2" placeholder="Password" />
+									<div class="help-block text-right">
+										<a href="">Forget the password ?</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary btn-block">Sign
+										in</button>
+								</div>
+								<div class="checkbox">
+									<label> <input type="checkbox"> keep me
+											logged-in</input>
+									</label>
+								</div>
+							</form>
+						</div>
+						<div class="bottom text-center">
+							New here ? <a href="#"><b>Join Us</b></a>
+						</div>
+					</div>
+				</li>
+			</ul></li>
+	</ul>
+
+</div>
+<!-- /.navbar-collapse --> </nav>
 </html>

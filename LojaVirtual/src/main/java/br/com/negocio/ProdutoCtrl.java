@@ -51,6 +51,14 @@ public class ProdutoCtrl implements Serializable {
 
 	}
 
+	public String actionNovaLista() {
+		produto = new Produto();
+		this.filtro = null;
+		getListagem();
+		
+		return "lista_produto";
+
+	}
 	public String actionExcluir() {
 		ProdutoDao.excluir(produto);
 		return "lista_produto";
