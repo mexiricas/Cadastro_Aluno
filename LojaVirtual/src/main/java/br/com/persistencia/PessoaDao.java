@@ -50,7 +50,7 @@ public class PessoaDao implements Serializable{
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		Query consulta = sessao.createQuery("from Pessoa");
 		if (pessoa_nome == null) {
-			consulta = sessao.createQuery("from Pessoa order by nome");
+			consulta = sessao.createQuery("from Pessoa order by pes_nome");
 		} else {
 			consulta = sessao.createQuery("from Pessoa where pes_nome like:parametro order by pes_nome");
 			consulta.setString("parametro", "%" + pessoa_nome + "%");

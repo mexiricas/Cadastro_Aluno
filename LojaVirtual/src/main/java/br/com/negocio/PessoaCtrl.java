@@ -25,7 +25,7 @@ public class PessoaCtrl implements Serializable {
 	public String actionGravar() {
 		if (pessoa.getPes_id() == 0) {
 			PessoaDao.salvar(pessoa);
-			return "index";
+			return "lista_cliente";
 		} else {
 			PessoaDao.alterar(pessoa);
 			return "pessoa_cad";
@@ -40,7 +40,7 @@ public class PessoaCtrl implements Serializable {
 	
 	public String actionExcluir() {
 		PessoaDao.excluir(pessoa);
-		return "index";
+		return "lista_cliente";
 
 	}
 	
