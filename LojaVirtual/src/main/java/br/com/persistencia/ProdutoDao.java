@@ -43,7 +43,7 @@ public class ProdutoDao implements Serializable {
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		Query consulta = sessao.createQuery("from Produto");
 		if (prod_nome == null) {
-			consulta = sessao.createQuery("from Produto order by nome");
+			consulta = sessao.createQuery("from Produto order by prod_id");
 		} else {
 			consulta = sessao.createQuery("from Produto where pro_nome like:parametro order by pro_nome");
 			consulta.setString("parametro", "%" + prod_nome + "%");

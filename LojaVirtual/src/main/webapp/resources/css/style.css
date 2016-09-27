@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+@import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
 
 body {
 	font: 300 14px sans-serif;
@@ -18,14 +18,11 @@ body {
 .emphasis {
 	font-size: 1.3em;
 }
-
-#container {
-	width: auto;
-	height: 450px;
-	margin: 0;
-	text-align: center;
+.letra{
+	font-size: 32px;
+	font-family: 'Kaushan Script', cursive;
+	
 }
-
 #cabecalho {
 	margin-top: 60px;
 	height: 10%;
@@ -33,16 +30,6 @@ body {
 	text-align: center;
 	font-size: 32px;
 	font-weight: bold;
-}
-
-.index {
-	
-}
-
-.botoes {
-	background-color: #D2691E;
-	color: #FFFFFF;
-	border: 1px outset;
 }
 
 .cabecalhoGeral {
@@ -60,8 +47,7 @@ body {
 	margin-left: 30%;
 	text-align: center;
 	border: 2px solid green;
-	width: 550px;
-	border: 2px solid green;
+	white-space: nowrap;
 }
 
 /* Definiï¿½ï¿½o de estilos para linha de cabeï¿½alho da tabela*/
@@ -95,24 +81,9 @@ body {
 	padding-right: 15px;
 	white-space: nowrap;
 	border: solid 1px;
+	white-space: nowrap;
 }
 
-.cidade {
-	font: 18px Arial, sans-serif;
-	text-align: center;
-	background: #BCEE68;
-	padding-left: 15px;
-	white-space: nowrap;
-	padding-right: 15px;
-	border: solid 1px;
-}
+
 
 /* Definiï¿½ï¿½o de estilos para coluna */
-.botoes {
-	text-align: center;
-	font: 18px Arial, sans-serif;
-	background: #A2CD5A;
-	padding: 3px;
-	text-align: center;
-	border: solid 1px;
-}
