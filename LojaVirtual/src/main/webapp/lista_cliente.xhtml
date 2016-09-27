@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<ui:composition template="template/layout.xhtml">
+	<ui:define name="principal">
+	
+		<h:form>
+			<h:dataTable id="tblpessoa" value="#{pessoaBeans.listagem}"
+				var="obj_pess" border="1" styleClass="tabela"
+				headerClass="cabecalho" rowClasses="nome,codigo">
+
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputLabel value="#{obj_pess.pes_nome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">CPF</f:facet>
+					<h:outputLabel value="#{obj_pess.pes_cpf}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">RG</f:facet>
+					<h:outputLabel value="#{obj_pess.pes_rg}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Cidade</f:facet>
+					<h:outputLabel value="#{obj_pess.pes_cidade}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Rua</f:facet>
+					<h:outputLabel value="#{obj_pess.pes_rua}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Editar</f:facet>
+					<h:commandLink value="editar" styleClass="btn btn-default"
+						action="#{pessoaBeans.actionAlterar(pessoaBeans.pessoa)}">
+						<f:setPropertyActionListener value="#{obj_pess}"
+							target="#{pessoaBeans.pessoa}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Excluir</f:facet>
+					<h:commandLink value="excluir" styleClass="btn btn-default"
+						action="#{pessoaBeans.actionExcluir}">
+						<f:setPropertyActionListener value="#{obj_pess}"
+							target="#{pessoaBeans.pessoa}" />
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
