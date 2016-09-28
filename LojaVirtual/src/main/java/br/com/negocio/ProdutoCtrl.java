@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import br.com.beans.Pessoa;
 import br.com.beans.Produto;
 import br.com.persistencia.ProdutoDao;
 
@@ -15,6 +16,7 @@ public class ProdutoCtrl implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Produto produto = new Produto();
+	private Pessoa pes = new Pessoa();
 	private String filtro;
 
 	public List<Produto> getListagem() {
@@ -28,6 +30,18 @@ public class ProdutoCtrl implements Serializable {
 	public String actionGravar() {
 
 		ProdutoDao produtoDao = new ProdutoDao();
+		ProdutoDao.inserir(produto);
+
+		if (produto.getId() == 0) {
+			ProdutoDao.inserir(produto);
+			return actionInserir();
+		} else {
+			ProdutoDao.alterar(produto);
+			return "lista_produto";
+		}
+	}
+	
+	public String actionPesquisar() {
 		ProdutoDao.inserir(produto);
 
 		if (produto.getId() == 0) {
@@ -85,6 +99,14 @@ public class ProdutoCtrl implements Serializable {
 
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+
+	public Pessoa getPes() {
+		return pes;
+	}
+
+	public void setPes(Pessoa pes) {
+		this.pes = pes;
 	}
 
 }

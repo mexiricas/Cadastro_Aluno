@@ -28,7 +28,7 @@ public class PessoaCtrl implements Serializable {
 			return "lista_cliente";
 		} else {
 			PessoaDao.alterar(pessoa);
-			return "pessoa_cad";
+			return "lista_cliente";
 		}
 	}
 	
