@@ -4,16 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="template/layout.xhtml">
 	<ui:define name="principal">
 		<div class="container">
+
 			<h:form>
 
 				<h:dataTable id="tblpessoa" value="#{pessoaBeans.listagem}"
-					var="obj_pess" border="1" styleClass="cliente"
-					headerClass="cabecalho" rowClasses="nome,codigo">
+					var="obj_pess" border="1"
+					styleClass="table table-striped table-condensed text-nowrap table-bordered table-hover text-center"
+					headerClass="btn-info" rowClasses="success,info">
 
 					<h:column>
 						<f:facet name="header">Nome</f:facet>
@@ -53,6 +56,7 @@
 					</h:column>
 				</h:dataTable>
 			</h:form>
+
 		</div>
 	</ui:define>
 </ui:composition>

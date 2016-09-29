@@ -2,13 +2,7 @@
 
 @import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
 
-body {
-	font: 300 14px sans-serif;
-	background-color: #f3f3f3 !important;
-	opacity: 60%;
-	width: 100%;
-	height: 100%;
-}
+
 
 .errors {
 	font-style: italic;
