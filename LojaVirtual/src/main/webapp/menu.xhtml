@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <nav class="navbar  navbar-default"> <!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
 	<h:graphicImage library="imagens" name="logo.png"
@@ -52,6 +52,11 @@
 					<li><a href="#">Separated link</a></li>
 					<li><a href="#">One more separated link</a></li>
 				</ul></li>
+			<h:selectOneRadio value="#{produtoCtrl.filtro}" styleClass="form-control">
+				<f:selectItem itemValue="Red" itemLabel="Color1 - Red" />
+				<f:selectItem itemValue="Green" itemLabel="Color1 - Green" />
+				<f:selectItem itemValue="Blue" itemLabel="Color1 - Blue" />
+			</h:selectOneRadio>
 			<div class="form-group" style="margin-top: 10px;">
 
 				<h:inputText value="#{produtoCtrl.filtro}" styleClass="codigo" />
