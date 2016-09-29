@@ -2,47 +2,47 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:body>
-        <ui:composition template="template/layout.xhtml">
-            <ui:define name="principal">
-                <h:form>
-                    <h:dataTable id="tblProduto" value="#{produtoCtrl.listagem}" var="obj_prod"
-                                 border="1" styleClass="tabela" headerClass="cabecalho"
-                                 rowClasses="nome,codigo">
-                        <h:column>
-                            <f:facet name="header">ID</f:facet>
-                            <h:outputLabel value="#{obj_prod.id}" />
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Nome</f:facet>
-                            <h:outputLabel value="#{obj_prod.nome}" />
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">Preço</f:facet>
-                            <h:outputLabel value="#{obj_prod.preco}" />
-                        </h:column>
-                        <h:column>
-                        <f:facet name="header">Editar</f:facet>
-                            <h:commandLink value="editar" styleClass="btn btn-default"
-                                           action="#{produtoCtrl.actionAlterar(produtoCtrl.produto)}">
-                                <f:setPropertyActionListener value="#{obj_prod}"
-                                                             target="#{produtoCtrl.produto}" />
-                            </h:commandLink>
-                        </h:column>
-                        <h:column>
-                        <f:facet name="header">Excluir</f:facet>
-                            <h:commandLink value="excluir" styleClass="btn btn-default"
-                                           action="#{produtoCtrl.actionExcluir}">
-                                <f:setPropertyActionListener value="#{obj_prod}"
-                                                             target="#{produtoCtrl.produto}" />
-                            </h:commandLink>
-                        </h:column>
-                    </h:dataTable>
-                </h:form>
-            </ui:define>
-        </ui:composition>
-    </h:body>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="template/layout.xhtml">
+	<ui:define name="principal">
+		<div class="container">
+			<h:form>
+				<h:dataTable id="tblProduto" value="#{produtoCtrl.listagem}"
+					var="obj_prod" border="1" styleClass="produto"
+					headerClass="cabecalho" rowClasses="nome,codigo">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputLabel value="#{obj_prod.id}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputLabel value="#{obj_prod.nome}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Preço</f:facet>
+						<h:outputLabel value="#{obj_prod.preco}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Editar</f:facet>
+						<h:commandLink value="editar" styleClass="btn btn-default"
+							action="#{produtoCtrl.actionAlterar(produtoCtrl.produto)}">
+							<f:setPropertyActionListener value="#{obj_prod}"
+								target="#{produtoCtrl.produto}" />
+						</h:commandLink>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Excluir</f:facet>
+						<h:commandLink value="excluir" styleClass="btn btn-default"
+							action="#{produtoCtrl.actionExcluir}">
+							<f:setPropertyActionListener value="#{obj_prod}"
+								target="#{produtoCtrl.produto}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
 </html>

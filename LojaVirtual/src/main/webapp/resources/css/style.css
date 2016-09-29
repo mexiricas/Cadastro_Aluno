@@ -43,13 +43,20 @@ body {
 	padding: 3px;
 }
 
-.tabela {
-	margin-left: 30%;
+.cliente {
+	margin-left: 25%;
 	text-align: center;
 	border: 2px solid green;
 	white-space: nowrap;
 }
 
+.produto {
+	margin-left: 25%;
+	width:700px;
+	text-align: center;
+	border: 2px solid green;
+	white-space: nowrap;
+}
 /* Definiï¿½ï¿½o de estilos para linha de cabeï¿½alho da tabela*/
 .cabecalho {
 	text-align: center;
