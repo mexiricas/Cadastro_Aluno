@@ -46,6 +46,10 @@ public class Cidades {
 		return cid_id;
 	}
 
-
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return  this.cid_nome ;
+}
 
 }

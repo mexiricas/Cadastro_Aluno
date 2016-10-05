@@ -10,6 +10,7 @@ import br.com.beans.Estados;
 import br.com.persistencia.CidadesDao;
 import br.com.persistencia.ProdutoDao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -19,56 +20,44 @@ import javax.faces.bean.ManagedBean;
  * @author HJ-Sistemas
  */
 @ManagedBean(name = "cidadeBeans")
-public class CidadesCtrl {
-   private Cidades cid = new Cidades();
-   private Estados est = new Estados();
-   private String filtro = null;
+public class CidadesCtrl implements Serializable {
 
-   public List<Cidades> getListagemCidades() {
-		if(filtro == null){
+	private static final long serialVersionUID = 1L;
+	private Cidades cid = new Cidades();
+	private Estados est = new Estados();
+	private String filtro = null;
+
+	public List<Cidades> getListagemCidades() {
+		if (filtro == null) {
 			cid = new Cidades();
 			return CidadesDao.listagemCidades(null);
-		}else
-		return CidadesDao.listagemCidades(filtro);
+		} else
+			return CidadesDao.listagemCidades(filtro);
 	}
-   public List<Estados> getListagemEstados() {
-		if(filtro == null){
-			cid = new Cidades();
-			return CidadesDao.listagemEstados(null);
-		}else
-		return CidadesDao.listagemEstados(filtro);
+
+
+	public String getFiltro() {
+		return filtro;
 	}
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-     public String getFiltro() {
-        return filtro;
-    }
 
-    public void setFiltro(String filtro) {
-        this.filtro = filtro;
-    }
-   
-    public Cidades getCid() {
-        return cid;
-    }
+	public void setFiltro(String filtro) {
+		this.filtro = filtro;
+	}
 
-    public void setCid(Cidades cid) {
-        this.cid = cid;
-    }
+	public Cidades getCid() {
+		return cid;
+	}
+
+	public void setCid(Cidades cid) {
+		this.cid = cid;
+	}
+
 	public Estados getEst() {
 		return est;
 	}
+
 	public void setEst(Estados est) {
 		this.est = est;
-	} 
-    
+	}
+
 }

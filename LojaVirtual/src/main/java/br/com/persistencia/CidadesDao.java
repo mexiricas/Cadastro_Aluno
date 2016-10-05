@@ -7,6 +7,7 @@ package br.com.persistencia;
 
 import br.com.beans.Cidades;
 import br.com.beans.Estados;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -49,11 +50,11 @@ public class CidadesDao implements Serializable{
 	public static List<Cidades> listagemCidades(String cid_nome) {
 
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		Query consulta = sessao.createQuery("from cidades");
+		Query consulta = sessao.createQuery("from Cidades");
 		if (cid_nome == null) {
-			consulta = sessao.createQuery("from cidades order by nome");
+			consulta = sessao.createQuery("from Cidades order by nome");
 		} else {
-			consulta = sessao.createQuery("from cidades where nome like:parametro order by id");
+			consulta = sessao.createQuery("from Cidades where nome like:parametro order by id");
 			consulta.setString("parametro", "%" + cid_nome + "%");
 		}
 		List lscid = consulta.list();
@@ -61,20 +62,6 @@ public class CidadesDao implements Serializable{
 		
 		return lscid;
 	}
-	public static List<Estados> listagemEstados(String cid_nome) {
 
-		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		Query consulta = sessao.createQuery("from estados");
-		if (cid_nome == null) {
-			consulta = sessao.createQuery("from estados order by nome");
-		} else {
-			consulta = sessao.createQuery("from estados where nome like:parametro order by id");
-			consulta.setString("parametro", "%" + cid_nome + "%");
-		}
-		List lscid = consulta.list();
-		sessao.close();
-		
-		return lscid;
-	}
 	
 }
