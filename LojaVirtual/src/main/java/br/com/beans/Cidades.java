@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,51 +23,29 @@ import javax.persistence.Table;
 @Table(name = "cidades")
 public class Cidades {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int cid_id;
-    @Column(name = "nome", length = 120, nullable = true)
-    private String nome;
-    @Column(name = "pro_preco", nullable = true)
-    private int estado;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int cid_id;
+	@Column(name = "nome", length = 120, nullable = true)
+	private String cid_nome;
 
-    public Cidades() {
-    }
+	public void setCid_id(int cid_id) {
+		this.cid_id = cid_id;
+	}
 
-    public Cidades(int cid_id, String nome, int estado) {
-        this.cid_id = cid_id;
-        this.nome = nome;
-        this.estado = estado;
-    }
+	public String getCid_nome() {
+		return cid_nome;
+	}
 
-    public int getCid_id() {
-        return cid_id;
-    }
+	public void setCid_nome(String cid_nome) {
+		this.cid_nome = cid_nome;
+	}
 
-    public void setCid_id(int cid_id) {
-        this.cid_id = cid_id;
-    }
+	public int getCid_id() {
+		return cid_id;
+	}
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
-    public int getEstado() {
-        return estado;
-    }
-
-    public void setEstado(int estado) {
-        this.estado = estado;
-    }
-
-   @Override
-public String toString() {
-	// TODO Auto-generated method stub
-	return super.toString();
-}
 }

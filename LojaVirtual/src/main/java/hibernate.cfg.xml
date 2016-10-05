@@ -27,5 +27,7 @@
 		<!-- Mapeamento de Classe -->
 		<mapping class="br.com.beans.Produto" />
 		<mapping class="br.com.beans.Pessoa" />
+		<mapping class="br.com.beans.Cidades" />
+		<mapping class="br.com.beans.Estados" />
 	</session-factory>
 </hibernate-configuration>

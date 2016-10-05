@@ -6,9 +6,10 @@
 package br.com.persistencia;
 
 import br.com.beans.Cidades;
-import br.com.beans.Produto;
+import br.com.beans.Estados;
 import java.io.Serializable;
 import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -45,14 +46,29 @@ public class CidadesDao implements Serializable{
 		sessao.close();
 	}
 
-	public static List<Cidades> listagem(String cid_nome) {
+	public static List<Cidades> listagemCidades(String cid_nome) {
 
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		Query consulta = sessao.createQuery("from Produto");
+		Query consulta = sessao.createQuery("from cidades");
 		if (cid_nome == null) {
-			consulta = sessao.createQuery("from Produto order by nome");
+			consulta = sessao.createQuery("from cidades order by nome");
 		} else {
-			consulta = sessao.createQuery("from Produto where pro_nome like:parametro order by pro_nome");
+			consulta = sessao.createQuery("from cidades where nome like:parametro order by id");
+			consulta.setString("parametro", "%" + cid_nome + "%");
+		}
+		List lscid = consulta.list();
+		sessao.close();
+		
+		return lscid;
+	}
+	public static List<Estados> listagemEstados(String cid_nome) {
+
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		Query consulta = sessao.createQuery("from estados");
+		if (cid_nome == null) {
+			consulta = sessao.createQuery("from estados order by nome");
+		} else {
+			consulta = sessao.createQuery("from estados where nome like:parametro order by id");
 			consulta.setString("parametro", "%" + cid_nome + "%");
 		}
 		List lscid = consulta.list();

@@ -23,8 +23,8 @@
 					<div class="modal-body">
 						<div class="col-md-12">
 							<h:form>
-							<h:inputHidden value="#{pessoaBeans.pessoa.pes_id}"/>
-								<h:panelGrid columns="6" style="margin-left:110px;">
+								<h:inputHidden value="#{pessoaBeans.pessoa.pes_id}" />
+								<h:panelGrid columns="6" style="margin-left:10px;padding:50px;">
 									<i class="fa fa-user fa" aria-hidden="true"
 										style="padding-left: 15px;"></i>
 									<label for="name" class="cols-sm-2 control-label">Nome</label>
@@ -86,6 +86,24 @@
 									<label for="email" class="cols-sm-2 control-label">Cidade</label>
 									<h:inputText value="#{pessoaBeans.pessoa.pes_cidade}"
 										styleClass="form-control" />
+										
+									<i class="fa fa-user-plus" aria-hidden="true"
+										style="padding-left: 15px;"></i>
+									<label for="email" class="cols-sm-2 control-label">uf</label>
+									<h:selectOneMenu value="#{cidadeBeans.est.est_id}">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+										<f:selectItems value="#{cidadeBeans.listagemEstados}" var="user"
+											 />
+									</h:selectOneMenu>
+									<i class="fa fa-user-plus" aria-hidden="true"
+										style="padding-left: 15px;"></i>
+									<label for="email" class="cols-sm-2 control-label">Cidade</label>
+									<h:selectOneMenu value="#{cidadeBeans.cid.cid_id}">
+										<f:selectItem itemValue="" itemLabel="Selecione..." />
+										<f:selectItems value="#{cidadeBeans.listagemCidades}" var="user"
+											 />
+									</h:selectOneMenu>
+
 
 									<i class="fa fa-user-plus" aria-hidden="true"
 										style="padding-left: 15px;"></i>

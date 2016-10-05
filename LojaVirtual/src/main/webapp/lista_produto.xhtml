@@ -6,14 +6,16 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <ui:composition template="template/layout.xhtml">
 	<ui:define name="principal">
 		<div class="container">
+		<div class="col-md-4 col-md-offset-4">
 			<h:form>
 				<h:dataTable id="tblProduto" value="#{produtoCtrl.listagem}"
-					var="obj_prod" border="1" styleClass="produto"
-					headerClass="cabecalho" rowClasses="nome,codigo">
+					var="obj_prod" border="1"
+					styleClass="table table-striped table-condensed text-nowrap table-bordered table-hover text-center"
+					headerClass="btn-info" rowClasses="active,warning">
 					<h:column>
 						<f:facet name="header">ID</f:facet>
 						<h:outputLabel value="#{obj_prod.id}" />
@@ -28,22 +30,27 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header">Editar</f:facet>
-						<h:commandLink value="editar" styleClass="btn btn-default"
+						<h:commandLink 
 							action="#{produtoCtrl.actionAlterar(produtoCtrl.produto)}">
+							<i class="fa fa-pencil fa-lg" aria-hidden="true"
+								style="color: black;" title="editar"></i>
 							<f:setPropertyActionListener value="#{obj_prod}"
 								target="#{produtoCtrl.produto}" />
 						</h:commandLink>
 					</h:column>
 					<h:column>
 						<f:facet name="header">Excluir</f:facet>
-						<h:commandLink value="excluir" styleClass="btn btn-default"
+						<h:commandLink 
 							action="#{produtoCtrl.actionExcluir}">
+							<i class="fa fa-trash fa-lg" aria-hidden="true"
+								style="color: black;" title="excluir"></i>
 							<f:setPropertyActionListener value="#{obj_prod}"
 								target="#{produtoCtrl.produto}" />
 						</h:commandLink>
 					</h:column>
 				</h:dataTable>
 			</h:form>
+		</div>
 		</div>
 	</ui:define>
 </ui:composition>

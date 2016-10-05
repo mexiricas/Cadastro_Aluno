@@ -6,9 +6,12 @@
 package br.com.negocio;
 
 import br.com.beans.Cidades;
+import br.com.beans.Estados;
 import br.com.persistencia.CidadesDao;
 import br.com.persistencia.ProdutoDao;
+
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -18,16 +21,23 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name = "cidadeBeans")
 public class CidadesCtrl {
    private Cidades cid = new Cidades();
+   private Estados est = new Estados();
    private String filtro = null;
 
-   public List<Cidades> getListagem() {
+   public List<Cidades> getListagemCidades() {
 		if(filtro == null){
 			cid = new Cidades();
-			return CidadesDao.listagem(null);
+			return CidadesDao.listagemCidades(null);
 		}else
-		return CidadesDao.listagem(filtro);
+		return CidadesDao.listagemCidades(filtro);
 	}
-
+   public List<Estados> getListagemEstados() {
+		if(filtro == null){
+			cid = new Cidades();
+			return CidadesDao.listagemEstados(null);
+		}else
+		return CidadesDao.listagemEstados(filtro);
+	}
   
    
    
@@ -53,6 +63,12 @@ public class CidadesCtrl {
 
     public void setCid(Cidades cid) {
         this.cid = cid;
-    } 
+    }
+	public Estados getEst() {
+		return est;
+	}
+	public void setEst(Estados est) {
+		this.est = est;
+	} 
     
 }

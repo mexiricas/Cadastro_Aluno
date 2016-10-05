@@ -41,9 +41,9 @@
 					class="fa fa-list-ol" aria-hidden="true"></i> Listagens <span
 					class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li class="btn-default"><h:commandLink value="Listar Clientes"
+					<li><h:commandLink value="Listar Clientes"
 							action="lista_cliente" styleClass="info" /></li>
-					<li class="btn-default"><h:commandLink
+					<li><h:commandLink
 							value="Listar de Produtos"
 							action="#{produtoCtrl.actionNovaLista}" styleClass="info" /></li>
 					<li><a href="#">Something else here</a></li>
@@ -52,19 +52,15 @@
 					<li><a href="#">Separated link</a></li>
 					<li><a href="#">One more separated link</a></li>
 				</ul></li>
-			<h:selectOneRadio value="#{produtoCtrl.filtro}" styleClass="form-control">
-				<f:selectItem itemValue="Red" itemLabel="Color1 - Red" />
-				<f:selectItem itemValue="Green" itemLabel="Color1 - Green" />
-				<f:selectItem itemValue="Blue" itemLabel="Color1 - Blue" />
-			</h:selectOneRadio>
-			<div class="form-group" style="margin-top: 10px;">
-
-				<h:inputText value="#{produtoCtrl.filtro}" styleClass="codigo" />
-
-				<h:commandButton value="Pesquisar" action="lista_produto"
-					styleClass="btn btn-default">
-				</h:commandButton>
-			</div>
+			<li style="margin-left: 10px; "><h:selectOneRadio value="#{produtoCtrl.filtro}"
+					layout="pageDirection">
+					<f:selectItem itemValue="1" itemLabel="Clientes" />
+					<f:selectItem itemValue="2" itemLabel="Produtos" />
+				</h:selectOneRadio></li>
+			<li style="margin-top:10px;margin-left: 10px; "><h:inputText value="#{produtoCtrl.filtro}"
+					styleClass="codigo" /> <h:commandButton value="Pesquisar"
+					action="lista_produto" styleClass="btn btn-default">
+				</h:commandButton></li>
 		</ul>
 	</h:form>
 	<ul class="nav navbar-nav navbar-right">
