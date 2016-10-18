@@ -8,20 +8,21 @@ import br.com.beans.Fone;
 import br.com.beans.Pessoa;
 import br.com.persistencia.PessoaDao;
 
-@ManagedBean(name= "pessoaBeans")
+@ManagedBean(name = "pessoaBeans")
 public class PessoaCtrl implements Serializable {
 
 	private static final long serialVersionUID = 7329427687235074332L;
 	private Pessoa pessoa = new Pessoa();
 	private String filtro;
-	
+
 	public List<Pessoa> getListagem() {
-		if(filtro == null){
+		if (filtro == null) {
 			pessoa = new Pessoa();
 			return PessoaDao.listagem(null);
-		}else
-		return PessoaDao.listagem(filtro);
+		} else
+			return PessoaDao.listagem(filtro);
 	}
+
 	public String actionGravar() {
 		if (pessoa.getPes_id() == 0) {
 			PessoaDao.salvar(pessoa);
@@ -31,51 +32,57 @@ public class PessoaCtrl implements Serializable {
 			return "lista_cliente";
 		}
 	}
-	
+
 	public String actionVoltar() {
 		pessoa = new Pessoa();
 		return "index";
 
 	}
-	
+
 	public String actionExcluir() {
 		PessoaDao.excluir(pessoa);
 		return "lista_cliente";
 
 	}
-	
+
 	public String actionAlterar(Pessoa p) {
 		pessoa = p;
 		return "pessoa_cad";
 
 	}
-	
-	
-	
-	
-	
-	//getters e setters
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
-	public String getFiltro() {
-		return filtro;
-	}
-	public void setFiltro(String filtro) {
-		this.filtro = filtro;
-	}
-	
-	public String actioInserirFone(){
+
+	public String actionInserirFone() {
 		Fone fone = new Fone();
 		fone.setPessoa(pessoa);
 		pessoa.getFones().add(fone);
 		return "pessoa_cad";
 	}
-	
-	public String actionExcluirFone(){
+
+	// getters e setters
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public String getFiltro() {
+		return filtro;
+	}
+
+	public void setFiltro(String filtro) {
+		this.filtro = filtro;
+	}
+
+	public String actioInserirFone() {
+		Fone fone = new Fone();
+		fone.setPessoa(pessoa);
+		pessoa.getFones().add(fone);
+		return "pessoa_cad";
+	}
+
+	public String actionExcluirFone() {
 		return "form_pessoa";
 	}
 }

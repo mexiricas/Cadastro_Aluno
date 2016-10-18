@@ -1,13 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:composition template="template/layout.xhtml">
+
 	<ui:define name="principal">
 		<div class="container">
 			<div class="col-md-6 col-md-offset-3">
@@ -29,22 +30,21 @@
 							<f:facet name="header">RG</f:facet>
 							<h:outputLabel value="#{obj_pess.pes_rg}" />
 						</h:column>
-						<h:column>
-							<f:facet name="header">Cidade</f:facet>
-							<h:outputLabel value="#{obj_pess.pes_cidade}" />
-						</h:column>
+					
 						<h:column>
 							<f:facet name="header">Data de Nascimento</f:facet>
 							<h:outputLabel onfocus=" limpaCampo(this);" id="da"
 								value="#{obj_pess.pes_data_nasc}" maxlength="10"
 								onkeypress="formatarData('##/##/####', this);">
 								<f:convertDateTime locale="pt_BR" type="date" dateStyle="medium" />
+
 							</h:outputLabel>
 						</h:column>
 						<h:column>
 							<f:facet name="header">Rua</f:facet>
 							<h:outputLabel value="#{obj_pess.pes_rua}" />
 						</h:column>
+						
 						<h:column>
 							<f:facet name="header">Editar</f:facet>
 							<h:commandLink
@@ -66,9 +66,22 @@
 							</h:commandLink>
 						</h:column>
 					</h:dataTable>
+					<h:dataTable id="tblfones" value="#{pessoaBeans.pessoa.fones}"
+						var="obj_tel" border="1"
+						styleClass="table table-striped table-condensed text-nowrap table-bordered table-hover text-center"
+						headerClass="btn-info" rowClasses="active,warning">
+
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputLabel value="#{obj_tel.pessoa.pes_nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Tel:</f:facet>
+							<h:outputLabel value="#{obj_tel.fon_numero}" />
+						</h:column>
+						</h:dataTable>
 				</h:form>
 			</div>
 		</div>
 	</ui:define>
 </ui:composition>
-</html>

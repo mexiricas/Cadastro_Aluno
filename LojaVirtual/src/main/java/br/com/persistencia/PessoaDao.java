@@ -25,7 +25,6 @@ public class PessoaDao implements Serializable{
 		Transaction t = sessao.beginTransaction();
 		sessao.save(pessoa);
 		t.commit();
-		
 
 	}
 
@@ -57,7 +56,6 @@ public class PessoaDao implements Serializable{
 		}
 		List lspessoa = consulta.list();
 		sessao.close();
-		
 		return lspessoa;
 	}
 	public static Pessoa pesqId(int valor) {

@@ -15,7 +15,11 @@
 	font-size: 22px;
 	font-family: 'Kaushan Script', cursive;
 }
-
+.column{
+	padding: 50px;
+	margin-right:100px;
+	width: 100px;
+}
 #cabecalho {
 	margin-top: 60px;
 	height: 10%;
